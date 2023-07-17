@@ -23,8 +23,13 @@ use Pimcore\Event\BundleManagerEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Routing\RouterInterface;
 
-class PimcoreAdminListener implements EventSubscriberInterface
+class MenuAdminListener implements EventSubscriberInterface
 {
+    public function __construct(
+        private RouterInterface $router,
+    ) {
+    }
+
     public static function getSubscribedEvents()
     {
         return [
@@ -38,7 +43,8 @@ class PimcoreAdminListener implements EventSubscriberInterface
             array_merge(
                 $event->getPaths(),
                 [
-                    '/bundles/coreshopmenu/pimcore/js/events.js',
+                    '/bundles/coreshopmenu/pimcore/js/menu.js',
+                    $this->router->generate('coreshop_menu', ['type' => 'coreshop.coreshop']),
                 ],
             ),
         );
