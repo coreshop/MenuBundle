@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace CoreShop\Bundle\MenuBundle\EventListener;
+namespace CoreShop\Bundle\MenuBundle\AdminClass\EventListener;
 
 use Pimcore\Bundle\AdminBundle\Event\BundleManagerEvents;
 use Pimcore\Event\BundleManager\PathsEvent;
